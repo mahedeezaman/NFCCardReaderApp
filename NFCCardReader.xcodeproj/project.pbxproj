@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98614AE82C92A0AB00AD1206 /* NFCCardReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NFCCardReader.entitlements; sourceTree = "<group>"; };
 		98CD97062C8E96F7000F15F7 /* NFCCardReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFCCardReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCCardReaderApp.swift; sourceTree = "<group>"; };
 		98CD970B2C8E96F7000F15F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		98CD97082C8E96F7000F15F7 /* NFCCardReader */ = {
 			isa = PBXGroup;
 			children = (
+				98614AE82C92A0AB00AD1206 /* NFCCardReader.entitlements */,
 				98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */,
 				98CD970B2C8E96F7000F15F7 /* ContentView.swift */,
 				98CD970D2C8E96FA000F15F7 /* Assets.xcassets */,
@@ -419,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NFCCardReader/NFCCardReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -426,6 +429,7 @@
 				DEVELOPMENT_TEAM = 3MR87G5NZ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need this permission to scan";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -436,7 +440,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kobiraj.NFCCardReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kobiraj.NFCCardReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -454,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NFCCardReader/NFCCardReader.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -461,6 +466,7 @@
 				DEVELOPMENT_TEAM = 3MR87G5NZ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need this permission to scan";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -471,7 +477,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kobiraj.NFCCardReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kobiraj.NFCCardReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
