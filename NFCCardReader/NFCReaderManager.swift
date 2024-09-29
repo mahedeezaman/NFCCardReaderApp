@@ -19,7 +19,6 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
         session?.begin()
     }
     
-    // Called when an NFC tag is successfully read
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
         guard let message = messages.first, let record = message.records.first else {
             completion?(nil)
@@ -33,9 +32,38 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
         }
     }
     
-    // Called when the NFC session becomes invalid (error, timeout, etc.)
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        completion?(nil)
+        let nsError = error as NSError
+        let errorCode = nsError.code
+        
+        switch errorCode {
+        case NFCReaderError.readerErrorSecurityViolation.rawValue:
+            print("Error: \(error.localizedDescription)")
+            completion?("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerSessionInvalidationErrorFirstNDEFTagRead.rawValue:
+            print("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerSessionInvalidationErrorSessionTerminatedUnexpectedly.rawValue:
+            print("Error: \(error.localizedDescription)")
+            completion?("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerSessionInvalidationErrorSessionTimeout.rawValue:
+            print("Error: \(error.localizedDescription)")
+            completion?("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerSessionInvalidationErrorUserCanceled.rawValue:
+            print("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerTransceiveErrorSessionInvalidated.rawValue:
+            print("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerTransceiveErrorTagResponseError.rawValue:
+            print("Error: \(error.localizedDescription)")
+            completion?("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerTransceiveErrorTagNotConnected.rawValue:
+            print("Error: \(error.localizedDescription)")
+            completion?("Error: \(error.localizedDescription)")
+        case NFCReaderError.readerTransceiveErrorRetryExceeded.rawValue:
+            print("Error: \(error.localizedDescription)")
+            completion?("Error: \(error.localizedDescription)")
+        default:
+            completion?(nil)
+        }
     }
     
     func invalidateSession() {
