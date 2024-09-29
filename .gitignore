@@ -130,6 +130,7 @@ iOSInjectionProject/
 ### SwiftPackageManager ###
 Packages
 xcuserdata
+*.xcuserstate
 *.xcodeproj
 
 
