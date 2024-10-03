@@ -11,7 +11,6 @@ import CoreNFC
 struct ContentView: View {
     @StateObject private var nfcReader = NFCReader()
     @State private var nfcMessage: String = "Tap to Scan NFC"
-    @State private var isScanning: Bool = false
 
     var body: some View {
         GeometryReader { gr in
@@ -36,10 +35,19 @@ struct ContentView: View {
             .background(Color.black)
             .foregroundColor(.white)
         }
-        .alert(isPresented: $isScanning) {
-            Alert(title: Text("Scanning..."), message: Text("Hold your iPhone near an NFC tag"), dismissButton: .default(Text("Cancel"), action: {
-                nfcReader.invalidateSession()
-            }))
+        .alert(isPresented: $nfcReader.cantScan) {
+            Alert(
+                title: Text(
+                    "Scanning Failed"
+                ),
+                message: Text(
+                    "This device doesn't support tag scanning."
+                ),
+                dismissButton: .default(Text("Cancel"), action: {
+                    nfcReader.cantScan = false
+                    nfcReader.invalidateSession()
+                })
+            )
         }
     }
 }

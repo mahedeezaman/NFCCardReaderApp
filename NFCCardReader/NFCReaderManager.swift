@@ -11,8 +11,14 @@ import CoreNFC
 class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     var session: NFCNDEFReaderSession?
     var completion: ((String?) -> Void)?
+    var cantScan: Bool = false
     
     func beginScanning(completion: @escaping (String?) -> Void) {
+        guard NFCNDEFReaderSession.readingAvailable else {
+            self.cantScan = true
+            return
+        }
+        
         self.completion = completion
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
         session?.alertMessage = "Hold your iPhone near an NFC tag to scan."
@@ -20,16 +26,20 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        guard let message = messages.first, let record = message.records.first else {
-            completion?(nil)
-            return
+        for message in messages {
+            for record in message.records {
+                let data = String(data: record.payload, encoding: .utf8)
+                print("NFC Tag Detected: \(data ?? "no data")")
+                DispatchQueue.main.async {[weak self] in
+                    self?.completion?(data)
+                    session.invalidate()
+                }
+            }
         }
-        
-        if let payloadString = String(data: record.payload, encoding: .utf8) {
-            completion?(payloadString)
-        } else {
-            completion?("Unable to decode NFC message")
-        }
+    }
+    
+    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
+        print(session.alertMessage)
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
