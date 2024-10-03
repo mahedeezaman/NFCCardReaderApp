@@ -8,7 +8,7 @@
 import Foundation
 import CoreNFC
 
-class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
+class NFCReaderManager: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     var session: NFCNDEFReaderSession?
     var completion: ((String?) -> Void)?
     var cantScan: Bool = false

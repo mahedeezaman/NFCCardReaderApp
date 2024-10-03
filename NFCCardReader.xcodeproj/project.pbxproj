@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		98614AEA2C92A87500AD1206 /* NFCReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98614AE92C92A87500AD1206 /* NFCReaderManager.swift */; };
 		98CD970A2C8E96F7000F15F7 /* NFCCardReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */; };
-		98CD970C2C8E96F7000F15F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD970B2C8E96F7000F15F7 /* ContentView.swift */; };
+		98CD970C2C8E96F7000F15F7 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD970B2C8E96F7000F15F7 /* ReaderView.swift */; };
 		98CD970E2C8E96FA000F15F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CD970D2C8E96FA000F15F7 /* Assets.xcassets */; };
 		98CD97112C8E96FA000F15F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CD97102C8E96FA000F15F7 /* Preview Assets.xcassets */; };
 		98CD971B2C8E96FA000F15F7 /* NFCCardReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD971A2C8E96FA000F15F7 /* NFCCardReaderTests.swift */; };
 		98CD97252C8E96FA000F15F7 /* NFCCardReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD97242C8E96FA000F15F7 /* NFCCardReaderUITests.swift */; };
 		98CD97272C8E96FA000F15F7 /* NFCCardReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD97262C8E96FA000F15F7 /* NFCCardReaderUITestsLaunchTests.swift */; };
+		98FCDF7E2CAF40EB0099281A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCDF7D2CAF40E80099281A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		98614AE92C92A87500AD1206 /* NFCReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReaderManager.swift; sourceTree = "<group>"; };
 		98CD97062C8E96F7000F15F7 /* NFCCardReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFCCardReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCCardReaderApp.swift; sourceTree = "<group>"; };
-		98CD970B2C8E96F7000F15F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		98CD970B2C8E96F7000F15F7 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
 		98CD970D2C8E96FA000F15F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98CD97102C8E96FA000F15F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98CD97162C8E96FA000F15F7 /* NFCCardReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFCCardReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +48,7 @@
 		98CD97202C8E96FA000F15F7 /* NFCCardReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFCCardReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CD97242C8E96FA000F15F7 /* NFCCardReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCCardReaderUITests.swift; sourceTree = "<group>"; };
 		98CD97262C8E96FA000F15F7 /* NFCCardReaderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCCardReaderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		98FCDF7D2CAF40E80099281A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,8 @@
 			children = (
 				98614AE82C92A0AB00AD1206 /* NFCCardReader.entitlements */,
 				98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */,
-				98CD970B2C8E96F7000F15F7 /* ContentView.swift */,
+				98FCDF7D2CAF40E80099281A /* HomeView.swift */,
+				98CD970B2C8E96F7000F15F7 /* ReaderView.swift */,
 				98614AE92C92A87500AD1206 /* NFCReaderManager.swift */,
 				98CD970D2C8E96FA000F15F7 /* Assets.xcassets */,
 				98CD970F2C8E96FA000F15F7 /* Preview Content */,
@@ -263,7 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				98614AEA2C92A87500AD1206 /* NFCReaderManager.swift in Sources */,
-				98CD970C2C8E96F7000F15F7 /* ContentView.swift in Sources */,
+				98FCDF7E2CAF40EB0099281A /* HomeView.swift in Sources */,
+				98CD970C2C8E96F7000F15F7 /* ReaderView.swift in Sources */,
 				98CD970A2C8E96F7000F15F7 /* NFCCardReaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +442,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,6 +480,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

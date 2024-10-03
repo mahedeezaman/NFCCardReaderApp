@@ -8,8 +8,8 @@
 import SwiftUI
 import CoreNFC
 
-struct ContentView: View {
-    @StateObject private var nfcReader = NFCReader()
+struct ReaderView: View {
+    @StateObject private var nfcReader = NFCReaderManager()
     @State private var nfcMessage: String = "Tap to Scan NFC"
 
     var body: some View {
@@ -17,8 +17,8 @@ struct ContentView: View {
             VStack {
                 Text(nfcMessage)
                     .padding()
-
-                Button("Start NFC Scan") {
+                
+                Button {
                     nfcReader.beginScanning { message in
                         if let message = message {
                             nfcMessage = message
@@ -26,14 +26,15 @@ struct ContentView: View {
                             nfcMessage = "No NFC tags found"
                         }
                     }
+                } label: {
+                    Text("Start NFC Scan")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundStyle(Color.white)
+                        .cornerRadius(10)
                 }
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(10)
             }
             .frame(width: gr.size.width, height: gr.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .background(Color.black)
-            .foregroundColor(.white)
         }
         .alert(isPresented: $nfcReader.cantScan) {
             Alert(
@@ -53,5 +54,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ReaderView()
 }
