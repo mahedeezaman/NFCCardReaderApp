@@ -11,7 +11,7 @@ import CoreNFC
 class NFCReaderManager: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     var session: NFCNDEFReaderSession?
     var completion: ((String?) -> Void)?
-    var cantScan: Bool = false
+    @Published var cantScan: Bool = false
     
     func beginScanning(completion: @escaping (String?) -> Void) {
         guard NFCNDEFReaderSession.readingAvailable else {
@@ -63,6 +63,9 @@ class NFCReaderManager: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate
                                 case .nfcWellKnown:
                                     if let url = record.wellKnownTypeURIPayload() {
                                         self?.completion?(url.absoluteString)
+                                    } else {
+                                        let (text, _) = record.wellKnownTypeTextPayload()
+                                        self?.completion?(text)
                                     }
                                 case .absoluteURI:
                                     if let text = String(data: record.payload, encoding: .utf8) {
