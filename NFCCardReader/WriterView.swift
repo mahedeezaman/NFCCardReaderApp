@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct WriterView: View {
-    @State private var writeText = ""
     @FocusState private var focus: Bool
+    @StateObject private var nfcWriter = NFCWriterManager()
     var body: some View {
         VStack {
-            TextEditor(text: $writeText)
+            TextEditor(text: $nfcWriter.textToWrite)
                 .autocapitalization(.words)
                 .disableAutocorrection(true)
                 .border(.blue, width: 2)
@@ -27,7 +27,7 @@ struct WriterView: View {
                 }
             
             Button {
-                //
+                nfcWriter.beginWriting()
             } label: {
                 Text("Write")
                     .padding()
@@ -38,6 +38,20 @@ struct WriterView: View {
             }
         }
         .padding()
+        .alert(isPresented: $nfcWriter.cantScan) {
+            Alert(
+                title: Text(
+                    "Scanning Failed"
+                ),
+                message: Text(
+                    "This device doesn't support tag scanning."
+                ),
+                dismissButton: .default(Text("Cancel"), action: {
+                    nfcWriter.cantScan = false
+                    nfcWriter.invalidateSession()
+                })
+            )
+        }
     }
 }
 

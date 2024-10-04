@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		98614AEA2C92A87500AD1206 /* NFCReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98614AE92C92A87500AD1206 /* NFCReaderManager.swift */; };
 		98814EF52CAF69CD000E0EB0 /* WriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98814EF42CAF69CD000E0EB0 /* WriterView.swift */; };
+		98814EF72CAF7545000E0EB0 /* NFCWriterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98814EF62CAF7545000E0EB0 /* NFCWriterManager.swift */; };
 		98CD970A2C8E96F7000F15F7 /* NFCCardReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */; };
 		98CD970C2C8E96F7000F15F7 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD970B2C8E96F7000F15F7 /* ReaderView.swift */; };
 		98CD970E2C8E96FA000F15F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CD970D2C8E96FA000F15F7 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		98614AE82C92A0AB00AD1206 /* NFCCardReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NFCCardReader.entitlements; sourceTree = "<group>"; };
 		98614AE92C92A87500AD1206 /* NFCReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReaderManager.swift; sourceTree = "<group>"; };
 		98814EF42CAF69CD000E0EB0 /* WriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterView.swift; sourceTree = "<group>"; };
+		98814EF62CAF7545000E0EB0 /* NFCWriterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCWriterManager.swift; sourceTree = "<group>"; };
 		98CD97062C8E96F7000F15F7 /* NFCCardReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFCCardReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCCardReaderApp.swift; sourceTree = "<group>"; };
 		98CD970B2C8E96F7000F15F7 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
@@ -104,9 +106,10 @@
 				98614AE82C92A0AB00AD1206 /* NFCCardReader.entitlements */,
 				98CD97092C8E96F7000F15F7 /* NFCCardReaderApp.swift */,
 				98FCDF7D2CAF40E80099281A /* HomeView.swift */,
-				98814EF42CAF69CD000E0EB0 /* WriterView.swift */,
 				98CD970B2C8E96F7000F15F7 /* ReaderView.swift */,
 				98614AE92C92A87500AD1206 /* NFCReaderManager.swift */,
+				98814EF42CAF69CD000E0EB0 /* WriterView.swift */,
+				98814EF62CAF7545000E0EB0 /* NFCWriterManager.swift */,
 				98CD970D2C8E96FA000F15F7 /* Assets.xcassets */,
 				98CD970F2C8E96FA000F15F7 /* Preview Content */,
 			);
@@ -272,6 +275,7 @@
 				98614AEA2C92A87500AD1206 /* NFCReaderManager.swift in Sources */,
 				98FCDF7E2CAF40EB0099281A /* HomeView.swift in Sources */,
 				98CD970C2C8E96F7000F15F7 /* ReaderView.swift in Sources */,
+				98814EF72CAF7545000E0EB0 /* NFCWriterManager.swift in Sources */,
 				98CD970A2C8E96F7000F15F7 /* NFCCardReaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
