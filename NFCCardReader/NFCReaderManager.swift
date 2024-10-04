@@ -38,6 +38,54 @@ class NFCReaderManager: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate
         }
     }
     
+    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
+        guard let tag = tags.first else { return }
+        
+        session.connect(to: tag) { error in
+            if let error = error {
+                session.alertMessage = "Connection error: \(error.localizedDescription)"
+                session.invalidate()
+                return
+            }
+            
+            tag.queryNDEFStatus { (ndefStatus, _, error) in
+                if ndefStatus == .notSupported || error != nil {
+                    session.alertMessage = "Tag is not NDEF compliant"
+                    session.invalidate()
+                    return
+                }
+                
+                tag.readNDEF { (message, error) in
+                    if let message = message {
+                        DispatchQueue.main.async {[weak self] in
+                            for record in message.records {
+                                switch record.typeNameFormat {
+                                case .nfcWellKnown:
+                                    if let url = record.wellKnownTypeURIPayload() {
+                                        self?.completion?(url.absoluteString)
+                                    }
+                                case .absoluteURI:
+                                    if let text = String(data: record.payload, encoding: .utf8) {
+                                        self?.completion?(text)
+                                    }
+                                case .media:
+                                    if let type = String(data: record.type, encoding: .utf8) {
+                                        self?.completion?(type)
+                                    }
+                                default:
+                                    self?.completion?("Unknown data format")
+                                }
+                            }
+                        }
+                    } else {
+                        session.alertMessage = "Failed to read NDEF message"
+                    }
+                    session.invalidate()
+                }
+            }
+        }
+    }
+    
     func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
         print(session.alertMessage)
     }
