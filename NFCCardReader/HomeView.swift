@@ -38,13 +38,14 @@ struct HomeView: View {
         GeometryReader { gr in
             VStack(spacing: 0) {
                 VStack {
-                    if selectedTab == 0 {
-                        ZStack {
-                            Color.gray.ignoresSafeArea()
+                    ZStack {
+                        Color.gray
+                            .ignoresSafeArea()
+                        if selectedTab == 0 {
                             ReaderView()
+                        } else if selectedTab == 1 {
+                            WriterView()
                         }
-                    } else if selectedTab == 1 {
-                        ScrollView{}
                     }
                 }
                 HStack {
